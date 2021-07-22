@@ -1,5 +1,6 @@
 import cheerio, { Cheerio, CheerioAPI, Element } from 'cheerio';
 import axios from 'axios';
+import { extname } from 'path';
 import { IGetLibGen, IGetPDFLink } from '../../interfaces/getLibGen.js';
 
 export default class Scrapper {
@@ -37,11 +38,13 @@ export default class Scrapper {
 
       return {
         pdfLink: <string>body.find('h2 > a').attr('href'),
-        description: description
+        description: description,
+        extension: extname(<string>body.find('h2 > a').attr('href'))
       }
 
     } catch (error) {
       throw new Error(`The pdf link can not be processed, please try again.`)
     }
   }
-} 
+}
+

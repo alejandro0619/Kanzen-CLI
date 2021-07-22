@@ -16,8 +16,10 @@
   },
   "type": "module",
   "dependencies": {
+    "@types/inquirer": "^7.3.3",
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.10",
+    "inquirer": "^8.1.2",
     "js-file-download": "^0.4.12",
     "libgen": "^2.1.0"
   }

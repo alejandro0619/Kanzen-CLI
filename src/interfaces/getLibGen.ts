@@ -4,5 +4,6 @@ export interface IGetLibGen {
 }
 export interface IGetPDFLink {
   pdfLink: string,
-  description: string
+  description: string,
+  extension: string
 }

@@ -1,20 +1,16 @@
 import libgen from 'libgen';
 
 export default class LibGen {
-  public async searchBook() {
-    const availableMirrors = await libgen.mirror()
-
+  public async searchBookByTitle(title: string) {
+    const availableMirrors = await libgen.mirror();
     const options = {
       mirror: availableMirrors,
-      query: 'coding',
+      title: title,
       count: 5,
-      sort_by: 'year',
-      reverse: true
     }
     try {
       const data = await libgen.search(options)
-      let n = data.length
-      console.log(`${n} results for "${options.query}"`)
+      let n = data.length;
         while (n--){
           console.log('');
           console.log('Title: ' + data[n].title)
@@ -27,3 +23,5 @@ export default class LibGen {
     }
   }
 }
+const Libgen = new LibGen();
+const books = await Libgen.searchBookByTitle('Douglas Lind');
