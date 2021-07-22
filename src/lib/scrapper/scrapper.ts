@@ -1,7 +1,7 @@
 import cheerio, { Cheerio, CheerioAPI, Element } from 'cheerio';
 import axios from 'axios';
 import { extname } from 'path';
-import { IGetLibGen, IGetPDFLink } from '../../interfaces/getLibGen.js';
+import { IGetLibGen, IGetPDFLink } from '../../interfaces/ILibGen.js';
 
 export default class Scrapper {
   private _link: string;
