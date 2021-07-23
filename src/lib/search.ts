@@ -1,6 +1,7 @@
 import libgen from 'libgen';
 import IBooks from '../interfaces/IBooks.js'
 export default class LibGen {
+
   public async searchBookByTitle(title: string):Promise<IBooks[]> {
     try {
       const availableMirrors = await libgen.mirror();
@@ -11,20 +12,19 @@ export default class LibGen {
       }
       const response: IBooks[] = []
       const data = await libgen.search(options);
-      let n = data.length;
+      let n: number = data.length;
       while (n--) {
-        response.push({
+         response.push({
           title: data[n].title,
           author: data[n].author,
           downloadLink: `http://gen.lib.rus.ec/book/index.php?md5=${data[n].md5.toLowerCase()}`
         });
-        return response;
       }
+      return response;
     } catch (err) {
-      console.log("⚠️ Couldn't reach any book at the moment. Try checking the title. ⚠️");
-      throw new Error(<string>err)
-    
+      throw new Error("⚠️ Couldn't reach any book at the moment. Try checking the title. ⚠️")
     }
+
   }
 }
 const Libgen = new LibGen();

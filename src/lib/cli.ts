@@ -11,7 +11,7 @@ export default class Books{
       message: '🔎 Type the title of the book🔍'
     });
     if (answers['search'] !== '') {
-      console.log(answers['search']);
+      console.log(`searching for ${answers['search']}...\n Please wait.`);
       const Libgen = new LibGen();
       const searchBook = await Libgen.searchBookByTitle(answers['search']);
       console.log(searchBook);
