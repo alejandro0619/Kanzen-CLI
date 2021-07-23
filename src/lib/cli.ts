@@ -1,10 +1,10 @@
 import inquirer from 'inquirer';
 import { Commands } from '../utils/Commands.js';
 import LibGen from './search.js'
-import IBooks  from '../interfaces/IBooks'
+
 export default class Books{
 
-  private async input():Promise<IBooks[] | void> {
+  private async input() {
     try {
     const answers: {} = await inquirer.prompt({
       type: 'input',
@@ -12,23 +12,28 @@ export default class Books{
       message: '🔎 Type the title of the book🔍'
     });
       if (answers['search'] !== '') {
-      console.log(`searching for ${answers['search']}...\nPlease wait.`);
-      const Libgen = new LibGen();
-      console.log('worked!')
-      return await Libgen.searchBookByTitle(answers['search']);
+      console.log(`Please wait, searching for ${answers['search']}...`);
+        const Libgen = new LibGen();
+        // had to cast to array because of a type error:
+        const books_tmp = await Libgen.searchBookByTitle(answers['search']);
+        const books = Object.values(books_tmp);
+        const booksName = books.map(x => x.title);
+        const selectBook: {} = await inquirer.prompt({
+          message: '📖 Search a book by 📖',
+          type: 'list',
+          name: 'title',
+          choices: booksName
+        });
+        console.log(selectBook['title'])
       } else {
-          return console.log('Please, enter a query to search.')
+          console.log('Please, enter a query to search.');
         }
     }
     catch (err) {
       throw new Error('An error has ocurred')
     }
   }
-  private async selectABook() {
-    const books: IBooks[] | void = await this.input();
-    
-    
-  }
+
 
   public async search() {
     const answers: {} = await inquirer.prompt({
