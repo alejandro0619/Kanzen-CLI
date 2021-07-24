@@ -14,7 +14,7 @@
 <br>
 
 ## WARNING
-### __This application has been tested in Windows enviroments. I do not guaramtee it will work on UNIX based systems__
+### __This application has been tested in Windows enviroments. I do not guarantee it will work on UNIX based systems__
 ----
 <br>
 
