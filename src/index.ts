@@ -4,4 +4,4 @@ async function main() {
   const Book = new Books();
   await Book.search()
 }
-//main()
+main()

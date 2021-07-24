@@ -101,5 +101,3 @@ export default class Books{
     }
   }
 }
-const dd = new Books();
-await dd.search()

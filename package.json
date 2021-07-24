@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "Spaghetti <alejandrolpz0619@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/fs-extra": "^9.0.12",
     "@types/node": "^16.3.2",

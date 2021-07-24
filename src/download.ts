@@ -16,7 +16,7 @@ export default class DownloadBook {
         responseType: 'stream'
       });
       response.data.pipe(writer);
-      writer.on('finish', () => console.log(`✔️ ${name} downloaded successfully ✔️`));
+      writer.on('finish', () => console.log(`✔️downloaded successfully. Check your folder ${bookFolderPath} ✔️`));
       writer.on('error', () => console.error(`⚠️Whoops! An error ocurred while downloading ${name}. Try again ⚠️`));
     }
     } catch (e) {
