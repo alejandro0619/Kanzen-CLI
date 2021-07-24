@@ -18,7 +18,8 @@ export default class LibGen {
           title: data[n].title,
           author: data[n].author,
           downloadLink: `http://gen.lib.rus.ec/book/index.php?md5=${data[n].md5.toLowerCase()}`,
-          size: data[n].filesize
+          size: data[n].filesize,
+          desc: data[n].descr
         });
       }
       return response.length === 0 ? 'Whoops! Couldn\'t find the book you\'re looking for.' : response;

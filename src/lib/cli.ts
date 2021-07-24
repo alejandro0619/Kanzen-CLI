@@ -6,7 +6,7 @@ import sanitizeArray from '../utils/sanitizeArray.js';
 import Scrapper from './scrapper/scrapper.js';
 import convertFileSize from '../utils/convertFileSize.js';
 import IInfo from '../interfaces/IshowInfo.js';
-
+import DownloadBook from '../download.js';
 export default class Books{
 
   private async input() {
@@ -14,15 +14,15 @@ export default class Books{
     const answers: {} = await inquirer.prompt({
       type: 'input',
       name: 'search',
-      message: '🔎 Type the title of the book🔍'
+      message: '🔎 Enter a query to search🔍'
     });
       if (answers['search'] !== '') {
-      console.log(`Please wait, searching for ${answers['search']}...`);
+      console.log(` Please wait, searching for ${answers['search']}...`);
         const Libgen = new LibGen();
         const books:IBooks[] = <IBooks[]>await Libgen.searchBookByTitle(answers['search']);
         const booksName = sanitizeArray(books.map(x => x.title.toLocaleLowerCase()));
         const selectBook = await inquirer.prompt({
-          message: '📖 Search a book by 📖',
+          message: ' I want to download: ',
           type: 'list',
           name: 'title',
           choices: booksName
@@ -31,28 +31,30 @@ export default class Books{
         const bookToDownload = books.filter(el => el.title.toLocaleLowerCase() === selectBook.title)[0];
         const ScrapperClass = new Scrapper(bookToDownload.downloadLink);
         const getPDFLink = await ScrapperClass.getPDFLink();
+        console.clear()
         const info = this.showInfo({
           title: selectBook.title,
-          desc: getPDFLink.description,
+          desc: bookToDownload.desc,
           ext: getPDFLink.extension,
-          fileSize: convertFileSize(bookToDownload.size)
+          fileSize: `${convertFileSize(bookToDownload.size)} MB`
         });
         console.log(info);
         const confirmToDownload = await inquirer.prompt({
           type: 'list',
           name: 'confirm',
-          message: `➡️ Confirm to download: ${answers['search']}`,
-          choices: ['⬇️ Download ⬇️']
+          message: `➡️ Confirm to download: ${selectBook.title}`,
+          choices: ['✔️ Yes']
         });
         switch (confirmToDownload['confirm']) {
-          case '⬇️ Download ⬇️': this.download(getPDFLink.pdfLink)
+          case '✔️ Yes': await this.download(getPDFLink.pdfLink, `${selectBook.title}${getPDFLink.extension}`)
         }
       } else {
           console.log('Please, enter a query to search.');
         }
     }
     catch (err) {
-      throw new Error('An error has ocurred');
+      console.error('Couldn\'t find a book by the query you enter');
+      
     }
   }
   private showInfo(params: IInfo): string {
@@ -62,15 +64,14 @@ export default class Books{
       ext,
       fileSize } = params;
     
-    return `➡️${title} Information:
-  ✅ Description: ${desc}
-  ✅ Extension: ${ext}
-  ✅ Size: ${fileSize}`
+    return ` ➡️${title} Information: \n✅ Description: ${desc} \n✅ Extension: ${ext} \n✅ Size: ${fileSize}`
   }
 
-  private download(link: string) {
-    console.log(link)
+  private async download(link: string, name: string): Promise<void> {
+    const DownloadBookClass = new DownloadBook();
+    await DownloadBookClass.downloadBook(link, name);
   }
+
   public async search() {
     const answers: {} = await inquirer.prompt({
       message: '📖 Search a book by 📖',
@@ -79,7 +80,7 @@ export default class Books{
       choices: Object.values(Commands)
     });
     switch (answers['command']) {
-      case Commands.Title: await this.input();
+      case Commands.Query: await this.input();
         break;
       case Commands.Exit: console.log(`👊 Bye 👊`);
     }

@@ -1,4 +1,4 @@
 export enum Commands {
-  Title = '➡️ Title',
+  Query = '➡️ Query',
   Exit = '⚠️ Exit the CLI'
 } 
