@@ -1,16 +1,25 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/alejandro0619" alt="Fixer.io Wrapper" width="200"></a>
+  <a href="https://github.com/alejandro0619" alt="Kanzen Wrapper" width="200"></a>
   <br>
-  Kanzen
+  📚 Kanzen 📚
   <br>
 </h1>
 
 <h3 align="center">Kanzen (観禅) literally means perfection, this is exactly what this app is when it comes to downloading books.</h3>
    
+----
+## ⚠️ DISCLAIMER ⚠️
+### [click here to read](./DISCLAIMER.md)
+<br>
+
+## WARNING
+### __This application has been tested in Windows enviroments. I do not guaramtee it will work on UNIX based systems__
+----
+<br>
 
 ## Sample of use 📕
-----
+
       First step:
 <img title="step 1" alt="step 1" src="./doc/screenshots/step1.jpg">
 ----
