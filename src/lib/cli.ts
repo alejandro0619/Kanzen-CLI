@@ -7,6 +7,7 @@ import Scrapper from './scrapper/scrapper.js';
 import convertFileSize from '../utils/convertFileSize.js';
 import IInfo from '../interfaces/IshowInfo.js';
 import DownloadBook from '../download.js';
+import { ConfirmationToSearchAgain, confirmationToDownload } from '../utils/Confirm.js'
 export default class Books{
 
   private async input() {
@@ -43,10 +44,13 @@ export default class Books{
           type: 'list',
           name: 'confirm',
           message: `➡️ Confirm to download: ${selectBook.title}`,
-          choices: ['✔️ Yes']
+          choices: Object.values(confirmationToDownload)
         });
         switch (confirmToDownload['confirm']) {
-          case '✔️ Yes': await this.download(getPDFLink.pdfLink, `${selectBook.title}${getPDFLink.extension}`)
+          case confirmationToDownload.Yes: await this.download(getPDFLink.pdfLink, `${selectBook.title}${getPDFLink.extension}`);
+            break;
+          case confirmationToDownload.No: 
+            break;
         }
       } else {
           console.log('Please, enter a query to search.');
@@ -54,7 +58,18 @@ export default class Books{
     }
     catch (err) {
       console.error('Couldn\'t find a book by the query you enter');
-      
+      const confirmToSearchAgain = await inquirer.prompt({
+        type: 'list',
+        name: 'confirm',
+        message: `Want to search by other query?`,
+        choices: Object.values(ConfirmationToSearchAgain)
+      });
+      switch (confirmToSearchAgain['confirm']) {
+        case ConfirmationToSearchAgain.Yes: await this.input();
+          break;
+        case ConfirmationToSearchAgain.No:
+          break;
+      }
     }
   }
   private showInfo(params: IInfo): string {
@@ -86,5 +101,5 @@ export default class Books{
     }
   }
 }
-const books = new Books();
-const resp = await books.search()
+const dd = new Books();
+await dd.search()
