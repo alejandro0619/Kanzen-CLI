@@ -14,10 +14,11 @@ export default class LibGen {
       const data = await libgen.search(options);
       let n: number = data.length;
       while (n--) {
-         response.push({
+        response.push({
           title: data[n].title,
           author: data[n].author,
-          downloadLink: `http://gen.lib.rus.ec/book/index.php?md5=${data[n].md5.toLowerCase()}`
+          downloadLink: `http://gen.lib.rus.ec/book/index.php?md5=${data[n].md5.toLowerCase()}`,
+          size: data[n].filesize
         });
       }
       return response.length === 0 ? 'Whoops! Couldn\'t find the book you\'re looking for.' : response;

@@ -1,6 +1,6 @@
-
 export default interface IBooks{
   title: string,
   author: string,
-  downloadLink: string
+  downloadLink: string,
+  size: string
 }

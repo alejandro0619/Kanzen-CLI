@@ -2,7 +2,7 @@ import { createWriteStream,  mkdirSync, statSync, accessSync } from 'fs';
 import { join, resolve as _resolve } from 'path';
 import axios from 'axios';
 
-export class DownloadBook {
+export default class DownloadBook {
   async downloadBook(url: string, name: string) {
     const homedir = (process.platform === 'win32') ? process.env.HOMEPATH : process.env.HOME;
     const desktopPath = join(<string>homedir, '/Desktop');
@@ -17,7 +17,7 @@ export class DownloadBook {
       });
       response.data.pipe(writer);
       writer.on('finish', () => console.log('Book downloaded successfully'));
-      writer.on('error', () => console.error('Whoops! Couldn\'t download the book'));
+      writer.on('error', () => console.error('Whoops! Couldn\'t download the book. Try again.'));
     }
     } catch (e) {
       mkdirSync(bookFolderPath);
