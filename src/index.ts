@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 import Books from "./lib/cli.js";
-async function main() {
-  const Book = new Books();
-  await Book.search()
+
+class Main{
+  public async start(){
+    const Book = new Books();
+    await Book.search()
+  }
 }
-main()
+const MainClass = new Main();
+await MainClass.start();
