@@ -23,10 +23,12 @@
       First step:
 <img title="step 1" alt="step 1" src="./doc/screenshots/step1.jpg">
 ----
+
     Second step:
 <img title="step 2" alt="step 2" src="./doc/screenshots/step2.jpg">
 ----
-        Third step:
+
+    Third step:
 <img title="step 2" alt="step 2" src="./doc/screenshots/step3.jpg">
 ----
     It's easy as that. (keep reading for detailed explanation on how to use)
@@ -35,6 +37,8 @@
 ## How to use: step by step.
 ### Let's see how to download a Javascript book:
 ```bash
+# Download it from directly from npm.
+$ npm i -g kanzen
 # Execute the CLI directly from your terminal:
 
 $ Kanzen
@@ -66,7 +70,6 @@ $ Kanzen
 (Move up and down to reveal more choices)
 # Move up and down with you arrows and press enter to search that book. I'll download javascript bible
  ➡️javascript bible Information:
-✅ Description: The JavaScript Bible, Gold Edition covers the new powerful functionality JavaScript gains with the release of the new fifth generation revisions of Internet Explorer and Netscape Communicator. The book includes all the great content included in the JavaScript Bible, 4th Edition, an international bestseller, plus over 400 pages of new material. The Gold Bible features essential new JavaScript information, additional ready -to-use JavaScript applications and scores of additional JavaScripts and Web page routines. This book will bring programmers and non-technical professionals, including casual programmers and scripters, painlessly up to speed on all aspects of mastering JavaScript. Key topics include programming fundamentals, JavaScript language elements and how to use them effectively, and how to easily and efficiently add powerful new functionality to HTML documents and Java applets. The JavaScript Bible, Gold Edition also comes with a Windows/Mac CD-ROM which includes over 100 sample scripts, on -screen quick-reference, and hundreds of megabytes of usable Web design elements and software.
 ✅ Extension: .pdf
 ✅ Size: 34.64 MB
 ? ➡️ Confirm to download: javascript bible (Use arrow keys)
@@ -97,7 +100,6 @@ $ npm run build
 $ npm run start
 
 ```
-
 
 ## Credits 📚
 

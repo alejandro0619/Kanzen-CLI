@@ -35,7 +35,6 @@ export default class Books{
         console.clear()
         const info = this.showInfo({
           title: selectBook.title,
-          desc: bookToDownload.desc,
           ext: getPDFLink.extension,
           fileSize: `${convertFileSize(bookToDownload.size)} MB`
         });
@@ -75,11 +74,10 @@ export default class Books{
   private showInfo(params: IInfo): string {
     const {
       title,
-      desc,
       ext,
       fileSize } = params;
     
-    return ` ➡️${title} Information: \n✅ Description: ${desc} \n✅ Extension: ${ext} \n✅ Size: ${fileSize}`
+    return ` ➡️${title} Information:\n✅ Extension: ${ext} \n✅ Size: ${fileSize}`
   }
 
   private async download(link: string, name: string): Promise<void> {
