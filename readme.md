@@ -22,16 +22,20 @@
 
       First step:
 <img title="step 1" alt="step 1" src="./doc/screenshots/step1.jpg">
+
 ----
 
     Second step:
 <img title="step 2" alt="step 2" src="./doc/screenshots/step2.jpg">
+
 ----
 
     Third step:
 <img title="step 2" alt="step 2" src="./doc/screenshots/step3.jpg">
 ----
+
     It's easy as that. (keep reading for detailed explanation on how to use)
+    
 ----
 
 ## How to use: step by step.
