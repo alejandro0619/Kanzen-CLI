@@ -108,7 +108,7 @@ $ npm run start
 ## Credits 📚
 
 This software uses the following open source packages:
-
+- [Libgen](https://www.npmjs.com/package/libgen#usage-choosing-a-mirror)
 - [Axios](https://axios-http.com/)
 - [Node.js](https://nodejs.org/)
 - [Typescript](https://www.typescriptlang.org/)
