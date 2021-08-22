@@ -1,6 +1,6 @@
 {
-  "name": "kanzen-cli",
-  "version": "1.0.0",
+  "name": "kanzen",
+  "version": "1.0.3",
   "description": "CLI tool to download books created in typescript",
   "main": "dist/index.js",
   "bin": {
@@ -29,10 +29,6 @@
   "repository": {
     "url": "https://github.com/alejandro0619/Kanzen-CLI",
     "type": "git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "public"
   },
   "type": "module",
   "dependencies": {
