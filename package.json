@@ -1,6 +1,6 @@
 {
-  "name": "kanzen",
-  "version": "1.0.3",
+  "name": "kanzen-cli",
+  "version": "1.0.0",
   "description": "CLI tool to download books created in typescript",
   "main": "dist/index.js",
   "bin": {
