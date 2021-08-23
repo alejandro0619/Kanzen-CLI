@@ -32,7 +32,8 @@ export default class Books{
         const bookToDownload = books.filter(el => el.title.toLocaleLowerCase() === selectBook.title)[0];
         const ScrapperClass = new Scrapper(bookToDownload.downloadLink);
         const getPDFLink = await ScrapperClass.getPDFLink();
-        console.clear()
+        console.log(getPDFLink.pdfLink)
+        
         const info = this.showInfo({
           title: selectBook.title,
           ext: getPDFLink.extension,
@@ -46,7 +47,11 @@ export default class Books{
           choices: Object.values(confirmationToDownload)
         });
         switch (confirmToDownload['confirm']) {
-          case confirmationToDownload.Yes: await this.download(getPDFLink.pdfLink, `${selectBook.title}${getPDFLink.extension}`);
+          case confirmationToDownload.Yes: {
+            console.log(getPDFLink.pdfLink)
+            await this.download(getPDFLink.pdfLink, `${selectBook.title}${getPDFLink.extension}`)
+            
+          };
             break;
           case confirmationToDownload.No: 
             break;
@@ -56,7 +61,7 @@ export default class Books{
         }
     }
     catch (err) {
-      console.error('Couldn\'t find a book by the query you enter');
+      console.error(err);
       const confirmToSearchAgain = await inquirer.prompt({
         type: 'list',
         name: 'confirm',
