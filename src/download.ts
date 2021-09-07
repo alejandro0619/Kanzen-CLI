@@ -6,7 +6,6 @@ export default class DownloadBook {
   async downloadBook(url: string, name: string) {
     const homedir = (process.platform === 'win32') ? process.env.HOMEPATH : process.env.HOME;
     const desktopPath = existsSync(join(<string>homedir, '/Desktop')) ? join(<string>homedir, '/Desktop') : join(<string>homedir, '/Escritorio');
-    console.log(desktopPath)
     const bookFolderPath = desktopPath.concat(`/Books/`);
     try {
       
