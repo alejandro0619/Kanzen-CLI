@@ -32,14 +32,12 @@ export default class Books{
         const bookToDownload = books.filter(el => el.title.toLocaleLowerCase() === selectBook.title)[0];
         const ScrapperClass = new Scrapper(bookToDownload.downloadLink);
         const getPDFLink = await ScrapperClass.getPDFLink();
-        console.log(getPDFLink.pdfLink)
         
         const info = this.showInfo({
           title: selectBook.title,
           ext: getPDFLink.extension,
           fileSize: `${convertFileSize(bookToDownload.size)} MB`
         });
-        console.log(info);
         const confirmToDownload = await inquirer.prompt({
           type: 'list',
           name: 'confirm',
@@ -48,7 +46,6 @@ export default class Books{
         });
         switch (confirmToDownload['confirm']) {
           case confirmationToDownload.Yes: {
-            console.log(getPDFLink.pdfLink)
             await this.download(getPDFLink.pdfLink, `${selectBook.title}${getPDFLink.extension}`)
             
           };
