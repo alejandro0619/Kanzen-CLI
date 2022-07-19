@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h3 align="center">Kanzen (観禅) literally means perfection, this is exactly what this app is when it comes to downloading books.</h3>
+<h3 align="center">Kanzen (in Chinese, 観禅) literally means perfection, this is exactly what this app is when it comes to downloading books.</h3>
    
 ----
 ## ⚠️ DISCLAIMER ⚠️
