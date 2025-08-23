@@ -1,3 +1,36 @@
+# ⚠️ AVISO IMPORTANTE: Este repositorio ya no se mantiene
+
+**Fecha de desvinculación:** 23/08/2025
+
+A partir de la fecha indicada, el paquete relacionado a este repositorio ha sido transferido a nuevos mantenedores. 
+
+**El autor original:**
+- Ya no mantiene este proyecto
+- No tiene ninguna relación con los actuales mantenedores
+- No ofrece soporte técnico ni garantías sobre el código
+- No se hace responsable por cambios futuros en el proyecto
+
+Para issues, soporte o información actualizada, contactar a los actuales mantenedores.
+
+---
+
+
+# ⚠️ IMPORTANT NOTICE: This repository is no longer maintained
+
+**Disassociation date:** 23/08/2025
+
+As of the indicated date, the npm package related to this repository  has been transferred to new maintainers.
+
+**The original author:**
+- No longer maintains this project
+- Has no relationship with the current maintainers
+- Provides no technical support or warranties for the code
+- Is not responsible for future changes to the project
+
+For issues, support or updated information, contact the current maintainers.
+
+
+
 <h1 align="center">
   <br>
   <a href="https://github.com/alejandro0619" alt="Kanzen Wrapper" width="200"></a>
